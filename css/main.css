@@ -6,15 +6,17 @@
   --text-color-light: #f1f1f1;
   --text-color-dark: #333;
 }
-
+@font-face {
+    font-family: "ArlaInterFaceRG";
+    src: url("../font/ArlaIF_Rg.ttf");
+}
 /* ---------- general styling ---------- */
 html {
-  color: var(--text-color-dark);
+  color: #000;
   font-family: Helvetica, Arial, sans-serif;
   height: 100%;
   text-align: center;
   width: 100%;
-  font-weight: 200;
 }
 
 body {
@@ -25,58 +27,46 @@ h1 {
   font-size: 2em;
   font-weight: 300;
   letter-spacing: 3px;
+  font-family: ArlaInterFaceRG;
 }
+/* ---------- side navigation ---------- */
 
-/* ---------- topbar styling ---------- */
-.topbar {
-  background-color: var(--green);
-  color: var(--text-color-light);
-  padding: 13.5px;
-  text-transform: uppercase;
+.sideNav{
   position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 9999;
+	background: #fff;
+	top: 0px;
+	left: 0px;
+	width: 120px;
+	height: 100%;
+	overflow: none;
+	z-index: 1;
+	text-align: center;
+	padding: 0;
 }
+.sideNav a{
+  color: #000;
+  height: auto;
 
-.topbar h2 {
-  margin: 0;
-  font-weight: 300;
 }
+.sideNav li{
+  width: 120px;
+  height: auto;
 
-/* ---------- tabbar styling ---------- */
-.tabbar {
-  background-color: var(--green);
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  z-index: 9999;
 }
-
-/* Style the links inside the navigation bar */
-.tabbar a {
-  display: inline-block;
-  color: var(--text-color-light);
-  text-align: center;
-  padding: 20px 16px;
-  text-decoration: none;
-  font-size: 0.8em;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
+.sideNav a:hover{
+background: #e8e8e8;
 }
-
-/* Change the color of links on hover */
-.tabbar a:hover {
-  background-color: var(--light-grey);
-  color: var(--text-color-dark);
+.sideNav img{
+  padding-top: 23px;
 }
-
-/* Add a color to the active/current link */
-.tabbar a.active {
-  background-color: var(--light-green);
-  color: var(--text-color-light);
+.sideNav p{
+  margin-top: 0;
+  padding-top: 0;
+}
+.active{
+  background: #e8e8e8;
+  border-right: solid 5px #19A413;
+  width: 125px;
 }
 
 /* ---------- page styling ---------- */
@@ -87,14 +77,20 @@ h1 {
   background: var(--light-grey);
   animation: fadeIn 0.4s;
   /* padding equals height of tabbar and topbar */
-  padding: 55px 0;
+  padding-left: 120px;
 }
 
 /* ---------- logo styling ---------- */
 .logo {
-  margin: 2em auto;
   width: 100%;
-  max-width: 300px;
+  padding: 0.5em;
+}
+
+#logoAnchor:hover {
+  background: none;
+}
+#logoAnchor{
+  margin-top: 20px;
 }
 
 /* ---------- animations ---------- */
