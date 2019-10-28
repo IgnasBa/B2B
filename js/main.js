@@ -1,4 +1,14 @@
 "use strict";
+// firebase config
+const firebaseConfig = {
+  apiKey: "AIzaSyBFhSZT2ORV1RmTLsqQCbzy-rq9H0L7mvI",
+  authDomain: "b2bbaby-136e0.firebaseapp.com",
+  databaseURL: "https://b2bbaby-136e0.firebaseio.com",
+  projectId: "b2bbaby-136e0",
+  storageBucket: "b2bbaby-136e0.appspot.com",
+  messagingSenderId: "189982050241",
+  appId: "1:189982050241:web:dacc41626f3aec1a7f1140"
+};
 
 // hide all pages
 function hideAllPages() {
