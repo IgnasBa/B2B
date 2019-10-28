@@ -53,14 +53,52 @@ setDefaultPage();
 
 // Chart
 
+const _db = firebase.firestore();
+const _dataRef = _db.collection("Data");
+let _sustainabilityData;
+
+// listen for changes on _dataRef
+_dataRef.orderBy("year").onSnapshot(function(snapshotData) {
+  _sustainabilityData = []; // reset _sustainabilityData
+  snapshotData.forEach(doc => { // loop through snapshotData - like for of loop
+    let data = doc.data(); // save the data in a variable
+    data.id = doc.id; // add the id to the data variable
+    _sustainabilityData.push(data); // push the data object to the global array _sustainabilityData
+  });
+  console.log(_sustainabilityData);
+  appendCows(_sustainabilityData); // call appendCows with _sustainabilityData as function argument
+ 
+});
+  let cows = [];
+  let years = [];
+     let electricity = [];
+     let diesel = [];
+     let footprint = [];
+     let sufficiency = [];
+function appendCows(sustainabilityData) {
+  // prepare data
+
+  sustainabilityData.forEach(data => {
+      cows.push(data.cows);
+      years.push(data.year);
+      electricity.push(data.electricity);
+      diesel.push(data.diesel);
+      footprint.push(data.footprint);
+      sufficiency.push(data.sufficiency);
+    
+  });
+
+  console.log(cows);
+  console.log(years);
+
 var ctx = document.getElementById('myChart');
 var myChart = new Chart(ctx, {
     type: 'line',
     data: {
-        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+        labels: ['2014', '2015', '2016', '2017', '2018'],
         datasets: [{
-            label: '# of Votes',
-            data: [12, 19, 3, 5, 2, 3],
+            label: 'footprint',
+            data: footprint,
             backgroundColor: [
                 'rgba(255, 99, 132, 0.2)',
                 'rgba(54, 162, 235, 0.2)',
@@ -81,8 +119,8 @@ var myChart = new Chart(ctx, {
             lineTension: 0
         },
         {
-            label: '# of Votess',
-            data: [15, 10, 7, 9, 8, 6],
+            label: 'AVGfootprint',
+            data: [555, 476, 500, 520, 450],
             backgroundColor: [
                 'pink'
             ],
@@ -99,6 +137,7 @@ var myChart = new Chart(ctx, {
         }]
     },
     options: {
+        maintainAspectRatio: false,
         scales: {
             yAxes: [{
                 ticks: {
@@ -108,3 +147,7 @@ var myChart = new Chart(ctx, {
         }
     }
 });
+myChart.canvas.parentNode.style.height = '350px';
+myChart.canvas.parentNode.style.width = '1000px';
+myChart.canvas.parentNode.style.marginLeft = '100px';
+}
