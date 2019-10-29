@@ -48,7 +48,6 @@
   <!-- pages -->
   <!-- dashboard page -->
   <section id="dashboard" class="page">
-    <main>
       <section class="row">
         <header class="col s12 l9">
           <h1>Welcome to Arlagården Plus</h1>
@@ -71,7 +70,6 @@
           <p>A tip a day keeps the CO2 Away</p>
         </section>
       </section>
-    </main>
   </section>
 
   <!-- survey page -->
@@ -105,14 +103,15 @@
       </header>
     </section>
     <section class="row">
-      <section class="col s12 l3">
+      <section id="totalFootprint" class="col s12 l4">
+        <p class="emmascript">Your farms</p>
         <h2>Total Carbon Footprint</h2>
         <p>Take a look at your farms total carbon footprint over the years.</p>
         <p>Underneath you can find more in-depht knowledge on how you can improve.</p>
       </section>
-      <section class="col s12 l9">
+      <section id="totalChart" class="col s12 l8">
         <!-- Insert Chart JS here -->
-        <canvas id="myChart" width="200" height="200"></canvas>
+        <canvas id="myChart"></canvas>
       </section>
     </section>
     <section class="row">
@@ -155,16 +154,34 @@
     </section>
   </section>
 
-  <!-- contact page -->
-  <section id="contact" class="page">
-    <header class="topbar">
-      <h2>Contact</h2>
-    </header>
-    <p>So, contact info?</p>
-    <p><a href="mailto:race@eaaa.dk">race@eaaa.dk</a></p>
-    <a href="http://cederdorff.com" target="_blank">
-      <img src="img/logo.png" alt="Cederdorff logo" class="logo">
-    </a>
+  <!-- leaderboard page -->
+  <section id="leaderboard" class="page">
+    <section class="row">
+      <header class="col s12">
+        <h1>Sustainability Survey</h1>
+      </header>
+    </section>
+    <section class="row">
+      <section class="col s12">
+        <h2>How did you do?</h2>
+        <p>You sure did great!</p>
+      </section>
+    </section>
+  </section>
+
+  <!-- profile page -->
+  <section id="profile" class="page">
+    <section class="row">
+      <header class="col s12">
+        <h1>Your Profile</h1>
+      </header>
+    </section>
+    <section class="row">
+      <section class="col s12">
+        <h2>Your information</h2>
+        <p>Your email and so on</p>
+      </section>
+    </section>
   </section>
 
   <!-- MaterializeCSS - Compiled and minified JavaScript -->
