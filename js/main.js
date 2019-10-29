@@ -147,7 +147,7 @@ function appendCows(sustainabilityData) {
             farmerNorth.push(data.farmer);
         }
 
-        console.log(farmerNorth);
+        //(farmerNorth);
 
     });
     sustainabilityData.forEach(data => {
@@ -167,10 +167,10 @@ function appendCows(sustainabilityData) {
     let northUnique = [...new Set(farmerNorth)];
 
 
-    console.log(cowsNorth);
-    console.log(cowsUser);
-    console.log(yearsUnique);
-    console.log(farmerUnique);
+    //(cowsNorth);
+    //(cowsUser);
+    //(yearsUnique);
+    //(farmerUnique);
 
     for (let i = 1; i <= farmerUnique.length; i++) {
         let number = 1;
@@ -214,7 +214,7 @@ function appendCows(sustainabilityData) {
 
 
     }
-    console.log(farmersList);
+    //(farmersList);
     for (let i = 0; i < yearsUnique.length; i++) {
         let cowsY = 0;
         let yearsY = 0;
@@ -256,7 +256,7 @@ function appendCows(sustainabilityData) {
 
         for (let j = 1; j <= farmerUnique.length; j++) {
             regionY = farmersList[j][0].region;
-            console.log(regionY);
+            //(regionY);
             if (regionY == 'north') {
                 cowsY = cowsY + farmersList[j][0].cows[i];
                 yearsY = yearsY + farmersList[j][0].years[i];
@@ -265,7 +265,7 @@ function appendCows(sustainabilityData) {
                 electricityY = electricityY + farmersList[j][0].electricity[i];
                 sufficiencyY = sufficiencyY + farmersList[j][0].sufficiency[i];
             }
-            console.log(footprintY);
+            //(footprintY);
 
         }
         farmersListAvgNorth[i] = [{
@@ -280,7 +280,7 @@ function appendCows(sustainabilityData) {
         // farmersListAvg[i] = farmerObject;
 
     }
-    console.log(farmersListAvgNorth);
+    //(farmersListAvgNorth);
 
 
     var ctx = document.getElementById('myChart');
@@ -433,7 +433,7 @@ function appendCows(sustainabilityData) {
             }
         }
     });
-    console.log(footprintNorth);
+    //(footprintNorth);
 
 }
-console.log(farmersListAvg);
+//(farmersListAvg);
