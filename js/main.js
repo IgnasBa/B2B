@@ -295,8 +295,9 @@ var myChart = new Chart(ctx, {
             label: 'Your footprint',
             data: footprintUser,
             backgroundColor: [
-                'rgba(63, 125, 140, 1)'
+                'rgba(96, 182, 203, 0.8)'
             ],
+            borderColor:['rgba(96, 182, 203, 1)'],
             borderWidth: 1,
             lineTension: 0,
 
@@ -304,9 +305,9 @@ var myChart = new Chart(ctx, {
         {
             label: 'Average footprint',
             data: [farmersListAvg[0][0].footprint,farmersListAvg[1][0].footprint,farmersListAvg[2][0].footprint,farmersListAvg[3][0].footprint,farmersListAvg[4][0].footprint],
-            backgroundColor:'darkGreen',
+            backgroundColor:'rgba(25, 93, 108, 0.8)',
             borderColor: [
-                'green'
+                'rgba(25, 93, 108, 1)'
             ],
             borderWidth: 1,
             lineTension: 0
@@ -314,11 +315,9 @@ var myChart = new Chart(ctx, {
             label: 'Average footprint from your region',
             data: [farmersListAvgNorth[0][0].footprint,farmersListAvgNorth[1][0].footprint,farmersListAvgNorth[2][0].footprint,farmersListAvgNorth[3][0].footprint,farmersListAvgNorth[4][0].footprint],
             backgroundColor: [
-                'yellow'
+                'rgba(29, 35, 68, 0.8)'
             ],
-            borderColor: [
-                'green'
-            ],
+            borderColor:['rgba(29, 35, 68, 1)'],
             borderWidth: 1,
             lineTension: 0
         }
@@ -344,7 +343,10 @@ var myChart2 = new Chart(ctx, {
             label: 'Your diesel consumption',
             data: dieselUser,
             backgroundColor: [
-                'rgba(63, 125, 140, 1)'
+                'rgba(141, 186, 207, 0.8)'
+            ],
+            borderColor: [
+                'rgba(141, 186, 207, 1)'
             ],
             borderWidth: 1,
             lineTension: 0,
@@ -353,9 +355,9 @@ var myChart2 = new Chart(ctx, {
         {
             label: 'Average diesel consumption',
             data: [farmersListAvg[0][0].diesel,farmersListAvg[1][0].diesel,farmersListAvg[2][0].diesel,farmersListAvg[3][0].diesel,farmersListAvg[4][0].diesel],
-            backgroundColor:'darkGreen',
+            backgroundColor:'rgba(86, 135, 158, 0.8)',
             borderColor: [
-                'green'
+                'rgba(86, 135, 158, 1)'
             ],
             borderWidth: 1,
             lineTension: 0
@@ -363,10 +365,10 @@ var myChart2 = new Chart(ctx, {
             label: 'Average diesel consumption from your region',
             data: [farmersListAvgNorth[0][0].diesel,farmersListAvgNorth[1][0].diesel,farmersListAvgNorth[2][0].diesel,farmersListAvgNorth[3][0].diesel,farmersListAvgNorth[4][0].diesel],
             backgroundColor: [
-                'yellow'
+                'rgba(21, 74, 99, 0.8)'
             ],
             borderColor: [
-                'green'
+                'rgba(21, 74, 99, 1)'
             ],
             borderWidth: 1,
             lineTension: 0
@@ -393,8 +395,9 @@ var myChart3 = new Chart(ctx, {
             label: 'Your footprint',
             data: electricityUser,
             backgroundColor: [
-                'rgba(63, 125, 140, 1)'
+                'rgba(18, 55, 38, 0.8)'
             ],
+            borderColor: ['rgba(18, 55, 38, 1)'],
             borderWidth: 1,
             lineTension: 0,
 
@@ -402,9 +405,9 @@ var myChart3 = new Chart(ctx, {
         {
             label: 'Average footprint',
             data: [farmersListAvg[0][0].electricity,farmersListAvg[1][0].electricity,farmersListAvg[2][0].electricity,farmersListAvg[3][0].electricity,farmersListAvg[4][0].electricity],
-            backgroundColor:'darkGreen',
+            backgroundColor:'rgba(54, 99, 78, 0.8)',
             borderColor: [
-                'green'
+                'rgba(54, 99, 78, 1)'
             ],
             borderWidth: 1,
             lineTension: 0
@@ -412,10 +415,10 @@ var myChart3 = new Chart(ctx, {
             label: 'Average footprint from your region',
             data: [farmersListAvgNorth[0][0].electricity,farmersListAvgNorth[1][0].electricity,farmersListAvgNorth[2][0].electricity,farmersListAvgNorth[3][0].electricity,farmersListAvgNorth[4][0].electricity],
             backgroundColor: [
-                'yellow'
+                'rgba(102, 167, 137, 1)'
             ],
             borderColor: [
-                'green'
+                'rgba(102, 167, 137, 1)'
             ],
             borderWidth: 1,
             lineTension: 0
