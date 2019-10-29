@@ -232,6 +232,7 @@ function appendCows(sustainabilityData) {
                     dieselY= dieselY+ farmersList[j][0].diesel[i];
                     footprintY= footprintY+ farmersList[j][0].footprint[i];
                     sufficiencyY= sufficiencyY+ farmersList[j][0].sufficiency[i];
+                    electricityY= electricityY+ farmersList[j][0].electricity[i];
                     regionY=farmersList[j][0].region;
                 }
             farmersListAvg[i]= [{
@@ -265,6 +266,7 @@ function appendCows(sustainabilityData) {
                     yearsY= yearsY+ farmersList[j][0].years[i];
                     dieselY= dieselY+ farmersList[j][0].diesel[i];
                     footprintY= footprintY+ farmersList[j][0].footprint[i];
+                        electricityY= electricityY+ farmersList[j][0].electricity[i];
                     sufficiencyY= sufficiencyY+ farmersList[j][0].sufficiency[i];}
                     console.log(footprintY);
 
@@ -339,8 +341,8 @@ var myChart2 = new Chart(ctx, {
     data: {
         labels: ['2014', '2015', '2016', '2017', '2018'],
         datasets: [{
-            label: 'Your footprint',
-            data: footprintUser,
+            label: 'Your diesel consumption',
+            data: dieselUser,
             backgroundColor: [
                 'rgba(63, 125, 140, 1)'
             ],
@@ -349,8 +351,8 @@ var myChart2 = new Chart(ctx, {
 
         },
         {
-            label: 'Average footprint',
-            data: [farmersListAvg[0][0].footprint,farmersListAvg[1][0].footprint,farmersListAvg[2][0].footprint,farmersListAvg[3][0].footprint,farmersListAvg[4][0].footprint],
+            label: 'Average diesel consumption',
+            data: [farmersListAvg[0][0].diesel,farmersListAvg[1][0].diesel,farmersListAvg[2][0].diesel,farmersListAvg[3][0].diesel,farmersListAvg[4][0].diesel],
             backgroundColor:'darkGreen',
             borderColor: [
                 'green'
@@ -358,8 +360,8 @@ var myChart2 = new Chart(ctx, {
             borderWidth: 1,
             lineTension: 0
         },{
-            label: 'Average footprint from your region',
-            data: [farmersListAvgNorth[0][0].footprint,farmersListAvgNorth[1][0].footprint,farmersListAvgNorth[2][0].footprint,farmersListAvgNorth[3][0].footprint,farmersListAvgNorth[4][0].footprint],
+            label: 'Average diesel consumption from your region',
+            data: [farmersListAvgNorth[0][0].diesel,farmersListAvgNorth[1][0].diesel,farmersListAvgNorth[2][0].diesel,farmersListAvgNorth[3][0].diesel,farmersListAvgNorth[4][0].diesel],
             backgroundColor: [
                 'yellow'
             ],
@@ -389,7 +391,7 @@ var myChart3 = new Chart(ctx, {
         labels: ['2014', '2015', '2016', '2017', '2018'],
         datasets: [{
             label: 'Your footprint',
-            data: footprintUser,
+            data: electricityUser,
             backgroundColor: [
                 'rgba(63, 125, 140, 1)'
             ],
@@ -399,7 +401,7 @@ var myChart3 = new Chart(ctx, {
         },
         {
             label: 'Average footprint',
-            data: [farmersListAvg[0][0].footprint,farmersListAvg[1][0].footprint,farmersListAvg[2][0].footprint,farmersListAvg[3][0].footprint,farmersListAvg[4][0].footprint],
+            data: [farmersListAvg[0][0].electricity,farmersListAvg[1][0].electricity,farmersListAvg[2][0].electricity,farmersListAvg[3][0].electricity,farmersListAvg[4][0].electricity],
             backgroundColor:'darkGreen',
             borderColor: [
                 'green'
@@ -408,7 +410,7 @@ var myChart3 = new Chart(ctx, {
             lineTension: 0
         },{
             label: 'Average footprint from your region',
-            data: [farmersListAvgNorth[0][0].footprint,farmersListAvgNorth[1][0].footprint,farmersListAvgNorth[2][0].footprint,farmersListAvgNorth[3][0].footprint,farmersListAvgNorth[4][0].footprint],
+            data: [farmersListAvgNorth[0][0].electricity,farmersListAvgNorth[1][0].electricity,farmersListAvgNorth[2][0].electricity,farmersListAvgNorth[3][0].electricity,farmersListAvgNorth[4][0].electricity],
             backgroundColor: [
                 'yellow'
             ],
@@ -434,3 +436,4 @@ var myChart3 = new Chart(ctx, {
     console.log(footprintNorth);
 
 }
+console.log(farmersListAvg);
