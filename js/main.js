@@ -65,7 +65,6 @@ _dataRef.orderBy("year").onSnapshot(function(snapshotData) {
     data.id = doc.id; // add the id to the data variable
     _sustainabilityData.push(data); // push the data object to the global array _sustainabilityData
   });
-  console.log(_sustainabilityData);
   appendCows(_sustainabilityData); // call appendCows with _sustainabilityData as function argument
  
 });
@@ -75,6 +74,33 @@ _dataRef.orderBy("year").onSnapshot(function(snapshotData) {
      let diesel = [];
      let footprint = [];
      let sufficiency = [];
+     let region = [];
+     let farmer = [];
+
+let cowsNorth = [];
+  let yearsNorth = [];
+     let electricityNorth = [];
+     let dieselNorth = [];
+     let footprintNorth = [];
+     let sufficiencyNorth = [];
+let cowsAvg = [];
+  let yearsAvg = [];
+     let electricityAvg = [];
+     let dieselAvg = [];
+     let footprintAvg = [];
+     let sufficiencyAvg = [];
+let cowsUser = [];
+  let yearsUser = [];
+     let electricityUser = [];
+     let dieselUser = [];
+     let footprintUser = [];
+     let sufficiencyUser = [];
+let farmerNorth = [];
+
+let farmersList = [];
+let farmersListAvg = [];
+let farmersListAvgNorth = [];
+     
 function appendCows(sustainabilityData) {
   // prepare data
 
@@ -85,11 +111,156 @@ function appendCows(sustainabilityData) {
       diesel.push(data.diesel);
       footprint.push(data.footprint);
       sufficiency.push(data.sufficiency);
+      region.push(data.region);
+      farmer.push(data.farmer);
+  });
+      sustainabilityData.forEach(data => {
+      if (data.region === 'north') {
+      cowsNorth.push(data.cows);
+      yearsNorth.push(data.year);
+      electricityNorth.push(data.electricity);
+      dieselNorth.push(data.diesel);
+      footprintNorth.push(data.footprint);
+      sufficiencyNorth.push(data.sufficiency);
+          farmerNorth.push(data.farmer);
+    }
+      
+    console.log(farmerNorth);
+          
+  });
+          sustainabilityData.forEach(data => {
+      if (data.farmer === 1) {
+      cowsUser.push(data.cows);
+      yearsUser.push(data.year);
+      electricityUser.push(data.electricity);
+      dieselUser.push(data.diesel);
+      footprintUser.push(data.footprint);
+      sufficiencyUser.push(data.sufficiency);
+    }
+      
     
   });
+    let yearsUnique = [...new Set(years)];
+    let farmerUnique = [...new Set(farmer)];
+    let northUnique = [...new Set(farmerNorth)];
+    
 
-  console.log(cows);
-  console.log(years);
+  console.log(cowsNorth);
+  console.log(cowsUser);
+    console.log(yearsUnique);
+    console.log(farmerUnique);
+    
+    for(let i = 1; i<= farmerUnique.length; i++)
+        {
+            let number = 1;
+            let farmerObject;
+            let cowsX = [];
+  let yearsX = [];
+     let electricityX = [];
+     let dieselX = [];
+     let footprintX = [];
+     let sufficiencyX = [];
+            let regionX;
+
+      sustainabilityData.forEach(data => {
+          
+      if (data.farmer === i) {
+      cowsX.push(data.cows);
+      yearsX.push(data.year);
+      electricityX.push(data.electricity);
+      dieselX.push(data.diesel);
+      footprintX.push(data.footprint);
+      sufficiencyX.push(data.sufficiency);
+          regionX = data.region;
+        
+    }
+          farmerObject = [
+              {
+                  "cows":cowsX,
+                  "years":yearsX,
+                  "electricity":electricityX,
+                  "diesel":dieselX,
+                  "footprint":footprintX,
+                  "sufficiency":sufficiencyX,
+                  "region":regionX
+              }
+          ]
+          
+      
+    
+  });farmersList[i]=farmerObject;
+            
+            
+        }
+    console.log(farmersList);
+    for (let i = 0; i< yearsUnique.length; i++)
+        {
+            let cowsY=0;
+            let yearsY = 0;
+     let electricityY = 0;
+     let dieselY = 0;
+     let footprintY = 0;
+     let sufficiencyY = 0;
+            let regionY;
+            
+            for(let j = 1; j<= farmerUnique.length; j++)
+                {
+                    cowsY= cowsY+ farmersList[j][0].cows[i];
+                    yearsY= yearsY+ farmersList[j][0].years[i];
+                    dieselY= dieselY+ farmersList[j][0].diesel[i];
+                    footprintY= footprintY+ farmersList[j][0].footprint[i];
+                    sufficiencyY= sufficiencyY+ farmersList[j][0].sufficiency[i];
+                    regionY=farmersList[j][0].region;
+                }
+            farmersListAvg[i]= [{
+                "cows":cowsY/farmerUnique.length,
+                "years":yearsY/farmerUnique.length,
+                  "electricity":electricityY/farmerUnique.length,
+                  "diesel":dieselY/farmerUnique.length,
+                  "footprint":footprintY/farmerUnique.length,
+                  "sufficiency":sufficiencyY/farmerUnique.length,
+                  "region":regionY
+            }]
+           // farmersListAvg[i] = farmerObject;
+            
+        }
+        for (let i = 0; i< yearsUnique.length; i++)
+        {
+            let cowsY=0;
+            let yearsY = 0;
+     let electricityY = 0;
+     let dieselY = 0;
+     let footprintY = 0;
+     let sufficiencyY = 0;
+            let regionY;
+            
+            for(let j = 1; j<= farmerUnique.length; j++)
+                {
+                    regionY=farmersList[j][0].region;
+                    console.log(regionY);
+                    if(regionY == 'north'){
+                    cowsY= cowsY+ farmersList[j][0].cows[i];
+                    yearsY= yearsY+ farmersList[j][0].years[i];
+                    dieselY= dieselY+ farmersList[j][0].diesel[i];
+                    footprintY= footprintY+ farmersList[j][0].footprint[i];
+                    sufficiencyY= sufficiencyY+ farmersList[j][0].sufficiency[i];}
+                    console.log(footprintY);
+                    
+                }
+            farmersListAvgNorth[i]= [{
+                "cows":cowsY/northUnique.length,
+                "years":yearsY/northUnique.length,
+                  "electricity":electricityY/northUnique.length,
+                  "diesel":dieselY/northUnique.length,
+                  "footprint":footprintY/northUnique.length,
+                  "sufficiency":sufficiencyY/northUnique.length,
+                  "region":regionY
+            }]
+           // farmersListAvg[i] = farmerObject;
+            
+        }
+console.log(farmersListAvgNorth);
+     
 
 var ctx = document.getElementById('myChart');
 var myChart = new Chart(ctx, {
@@ -97,44 +268,37 @@ var myChart = new Chart(ctx, {
     data: {
         labels: ['2014', '2015', '2016', '2017', '2018'],
         datasets: [{
-            label: 'footprint',
-            data: footprint,
+            label: 'Your footprint',
+            data: footprintUser,
             backgroundColor: [
-                'rgba(255, 99, 132, 0.2)',
-                'rgba(54, 162, 235, 0.2)',
-                'rgba(255, 206, 86, 0.2)',
-                'rgba(75, 192, 192, 0.2)',
-                'rgba(153, 102, 255, 0.2)',
-                'rgba(255, 159, 64, 0.2)'
-            ],
-            borderColor: [
-                'rgba(255, 99, 132, 1)',
-                'rgba(54, 162, 235, 1)',
-                'rgba(255, 206, 86, 1)',
-                'rgba(75, 192, 192, 1)',
-                'rgba(153, 102, 255, 1)',
-                'rgba(255, 159, 64, 1)'
+                'rgba(63, 125, 140, 1)'
             ],
             borderWidth: 1,
-            lineTension: 0
+            lineTension: 0,
+            
         },
         {
-            label: 'AVGfootprint',
-            data: [555, 476, 500, 520, 450],
-            backgroundColor: [
-                'pink'
-            ],
+            label: 'Average footprint',
+            data: [farmersListAvg[0][0].footprint,farmersListAvg[1][0].footprint,farmersListAvg[2][0].footprint,farmersListAvg[3][0].footprint,farmersListAvg[4][0].footprint],
+            backgroundColor:'darkGreen',
             borderColor: [
-                'rgba(255, 99, 132, 1)',
-                'rgba(54, 162, 235, 1)',
-                'rgba(255, 206, 86, 1)',
-                'rgba(75, 192, 192, 1)',
-                'rgba(153, 102, 255, 1)',
-                'rgba(255, 159, 64, 1)'
+                'green'
             ],
             borderWidth: 1,
             lineTension: 0
-        }]
+        },{
+            label: 'Average footprint from your region',
+            data: [farmersListAvgNorth[0][0].footprint,farmersListAvgNorth[1][0].footprint,farmersListAvgNorth[2][0].footprint,farmersListAvgNorth[3][0].footprint,farmersListAvgNorth[4][0].footprint],
+            backgroundColor: [
+                'yellow'
+            ],
+            borderColor: [
+                'green'
+            ],
+            borderWidth: 1,
+            lineTension: 0
+        }
+                  ]
     },
     options: {
         maintainAspectRatio: false,
@@ -147,7 +311,104 @@ var myChart = new Chart(ctx, {
         }
     }
 });
-myChart.canvas.parentNode.style.height = '350px';
-myChart.canvas.parentNode.style.width = '1000px';
-myChart.canvas.parentNode.style.marginLeft = '100px';
+    var ctx = document.getElementById('myChart2');
+var myChart2 = new Chart(ctx, {
+    type: 'line',
+    data: {
+        labels: ['2014', '2015', '2016', '2017', '2018'],
+        datasets: [{
+            label: 'Your footprint',
+            data: footprintUser,
+            backgroundColor: [
+                'rgba(63, 125, 140, 1)'
+            ],
+            borderWidth: 1,
+            lineTension: 0,
+            
+        },
+        {
+            label: 'Average footprint',
+            data: [farmersListAvg[0][0].footprint,farmersListAvg[1][0].footprint,farmersListAvg[2][0].footprint,farmersListAvg[3][0].footprint,farmersListAvg[4][0].footprint],
+            backgroundColor:'darkGreen',
+            borderColor: [
+                'green'
+            ],
+            borderWidth: 1,
+            lineTension: 0
+        },{
+            label: 'Average footprint from your region',
+            data: [farmersListAvgNorth[0][0].footprint,farmersListAvgNorth[1][0].footprint,farmersListAvgNorth[2][0].footprint,farmersListAvgNorth[3][0].footprint,farmersListAvgNorth[4][0].footprint],
+            backgroundColor: [
+                'yellow'
+            ],
+            borderColor: [
+                'green'
+            ],
+            borderWidth: 1,
+            lineTension: 0
+        }
+                  ]
+    },
+    options: {
+        maintainAspectRatio: false,
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero: true
+                }
+            }]
+        }
+    }
+});
+    var ctx = document.getElementById('myChart3');
+var myChart3 = new Chart(ctx, {
+    type: 'line',
+    data: {
+        labels: ['2014', '2015', '2016', '2017', '2018'],
+        datasets: [{
+            label: 'Your footprint',
+            data: footprintUser,
+            backgroundColor: [
+                'rgba(63, 125, 140, 1)'
+            ],
+            borderWidth: 1,
+            lineTension: 0,
+            
+        },
+        {
+            label: 'Average footprint',
+            data: [farmersListAvg[0][0].footprint,farmersListAvg[1][0].footprint,farmersListAvg[2][0].footprint,farmersListAvg[3][0].footprint,farmersListAvg[4][0].footprint],
+            backgroundColor:'darkGreen',
+            borderColor: [
+                'green'
+            ],
+            borderWidth: 1,
+            lineTension: 0
+        },{
+            label: 'Average footprint from your region',
+            data: [farmersListAvgNorth[0][0].footprint,farmersListAvgNorth[1][0].footprint,farmersListAvgNorth[2][0].footprint,farmersListAvgNorth[3][0].footprint,farmersListAvgNorth[4][0].footprint],
+            backgroundColor: [
+                'yellow'
+            ],
+            borderColor: [
+                'green'
+            ],
+            borderWidth: 1,
+            lineTension: 0
+        }
+                  ]
+    },
+    options: {
+        maintainAspectRatio: false,
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero: true
+                }
+            }]
+        }
+    }
+});
+    console.log(footprintNorth);
+
 }
