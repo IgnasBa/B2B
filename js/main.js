@@ -11,6 +11,7 @@ const firebaseConfig = {
 };
   firebase.initializeApp(firebaseConfig);
 
+// Single Page Application Functionality
 // hide all pages
 function hideAllPages() {
   let pages = document.querySelectorAll(".page");
@@ -29,7 +30,7 @@ function showPage(pageId) {
 
 // sets active tabbar/ menu item
 function setActiveTab(pageId) {
-  let pages = document.querySelectorAll(".sideNav ul li a");
+  let pages = document.querySelectorAll("nav ul li a");
   for (let page of pages) {
     if (`#${pageId}` === page.getAttribute("href")) {
       page.classList.add("active");
@@ -51,6 +52,27 @@ function setDefaultPage() {
 
 setDefaultPage();
 
+// Responsive navigation
+// toggle active (displayBlock) class on nav ul
+function toggleNavUl() {
+  let navUl = document.querySelector("nav ul");
+  if (navUl.classList.value === "displayBlock") {
+    navUl.classList.remove("displayBlock");
+  } else {
+    navUl.classList.add("displayBlock");
+  }
+}
+
+// uncheck checkbox controlling Responsive navigation
+function removeNavUl() {
+  let checkbox = document.querySelector("#menuToggle");
+  checkbox.checked = false;
+  //then toggle to remove displayBlock
+  let navUl = document.querySelector("nav ul");
+  navUl.classList.remove("displayBlock");
+}
+
+
 // Chart
 
 const _db = firebase.firestore();
@@ -66,7 +88,7 @@ _dataRef.orderBy("year").onSnapshot(function(snapshotData) {
     _sustainabilityData.push(data); // push the data object to the global array _sustainabilityData
   });
   appendCows(_sustainabilityData); // call appendCows with _sustainabilityData as function argument
- 
+
 });
   let cows = [];
   let years = [];
@@ -100,7 +122,7 @@ let farmerNorth = [];
 let farmersList = [];
 let farmersListAvg = [];
 let farmersListAvgNorth = [];
-     
+
 function appendCows(sustainabilityData) {
   // prepare data
 
@@ -124,9 +146,9 @@ function appendCows(sustainabilityData) {
       sufficiencyNorth.push(data.sufficiency);
           farmerNorth.push(data.farmer);
     }
-      
+
     console.log(farmerNorth);
-          
+
   });
           sustainabilityData.forEach(data => {
       if (data.farmer === 1) {
@@ -137,19 +159,19 @@ function appendCows(sustainabilityData) {
       footprintUser.push(data.footprint);
       sufficiencyUser.push(data.sufficiency);
     }
-      
-    
+
+
   });
     let yearsUnique = [...new Set(years)];
     let farmerUnique = [...new Set(farmer)];
     let northUnique = [...new Set(farmerNorth)];
-    
+
 
   console.log(cowsNorth);
   console.log(cowsUser);
     console.log(yearsUnique);
     console.log(farmerUnique);
-    
+
     for(let i = 1; i<= farmerUnique.length; i++)
         {
             let number = 1;
@@ -163,7 +185,7 @@ function appendCows(sustainabilityData) {
             let regionX;
 
       sustainabilityData.forEach(data => {
-          
+
       if (data.farmer === i) {
       cowsX.push(data.cows);
       yearsX.push(data.year);
@@ -172,7 +194,7 @@ function appendCows(sustainabilityData) {
       footprintX.push(data.footprint);
       sufficiencyX.push(data.sufficiency);
           regionX = data.region;
-        
+
     }
           farmerObject = [
               {
@@ -185,12 +207,12 @@ function appendCows(sustainabilityData) {
                   "region":regionX
               }
           ]
-          
-      
-    
+
+
+
   });farmersList[i]=farmerObject;
-            
-            
+
+
         }
     console.log(farmersList);
     for (let i = 0; i< yearsUnique.length; i++)
@@ -202,7 +224,7 @@ function appendCows(sustainabilityData) {
      let footprintY = 0;
      let sufficiencyY = 0;
             let regionY;
-            
+
             for(let j = 1; j<= farmerUnique.length; j++)
                 {
                     cowsY= cowsY+ farmersList[j][0].cows[i];
@@ -222,7 +244,7 @@ function appendCows(sustainabilityData) {
                   "region":regionY
             }]
            // farmersListAvg[i] = farmerObject;
-            
+
         }
         for (let i = 0; i< yearsUnique.length; i++)
         {
@@ -233,7 +255,7 @@ function appendCows(sustainabilityData) {
      let footprintY = 0;
      let sufficiencyY = 0;
             let regionY;
-            
+
             for(let j = 1; j<= farmerUnique.length; j++)
                 {
                     regionY=farmersList[j][0].region;
@@ -245,7 +267,7 @@ function appendCows(sustainabilityData) {
                     footprintY= footprintY+ farmersList[j][0].footprint[i];
                     sufficiencyY= sufficiencyY+ farmersList[j][0].sufficiency[i];}
                     console.log(footprintY);
-                    
+
                 }
             farmersListAvgNorth[i]= [{
                 "cows":cowsY/northUnique.length,
@@ -257,10 +279,10 @@ function appendCows(sustainabilityData) {
                   "region":regionY
             }]
            // farmersListAvg[i] = farmerObject;
-            
+
         }
 console.log(farmersListAvgNorth);
-     
+
 
 var ctx = document.getElementById('myChart');
 var myChart = new Chart(ctx, {
@@ -275,7 +297,7 @@ var myChart = new Chart(ctx, {
             ],
             borderWidth: 1,
             lineTension: 0,
-            
+
         },
         {
             label: 'Average footprint',
@@ -324,7 +346,7 @@ var myChart2 = new Chart(ctx, {
             ],
             borderWidth: 1,
             lineTension: 0,
-            
+
         },
         {
             label: 'Average footprint',
@@ -373,7 +395,7 @@ var myChart3 = new Chart(ctx, {
             ],
             borderWidth: 1,
             lineTension: 0,
-            
+
         },
         {
             label: 'Average footprint',
