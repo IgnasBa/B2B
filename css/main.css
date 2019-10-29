@@ -234,6 +234,7 @@ nav .menuToggle:checked ~ .menuIconContainer .menuIcon:last-child {
 .row .col {
   background-color: #fff;
   min-height: 300px;
+  height: 100%;
   margin-bottom: 5px;
   text-align: left;
   display: flex;
@@ -271,7 +272,74 @@ nav .menuToggle:checked ~ .menuIconContainer .menuIcon:last-child {
 }
 
 #statistics .row #totalChart {
+  /* Styling on the chart surroundings */
+}
 
+#statistics .row #emittedLastYear {
+  background-color: #6E9463;
+}
+
+#statistics .row #emittedSince {
+  background-color: #8EC5CA;
+}
+
+#statistics .row .emitted {
+  min-height: 100px;
+}
+
+#statistics .row .emitted p {
+  text-transform: uppercase;
+  margin: 0 auto;
+}
+
+#statistics .row .emitted p:first-child {
+  margin-top: 1em;
+  font-size: 0.75em;
+}
+
+#statistics .row .emitted p:last-child {
+  font-size: 1.25em;
+  font-weight: 900;
+  margin-bottom: 1em;
+}
+
+#statistics .row .emitted span {
+  text-transform: lowercase;
+}
+
+#statistics .row #output1 {
+  background-color: #8DBACF;
+}
+
+#statistics .row #output2 {
+  background-color: rgba(0, 108, 58, 0.6);
+}
+
+#statistics .row #goalImage {
+  background-image: url(../img/statistics-end-cow.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  min-height: 300px !important; /* Override materialize */
+  height: auto;
+  background-position: center;
+}
+
+#statistics .row button {
+  border: 2px solid #fff;
+  background: none;
+  font-family: 'Arla', Helvetica, Arial, sans-serif;
+  font-weight: 900;
+  font-size: 0.6em;
+  text-transform: uppercase;
+  color: #fff;
+  padding: 8px;
+  cursor: pointer;
+  margin-left: 1em;
+}
+
+#statistics .row button:hover {
+  background-color: #fff;
+  color: #333;
 }
 
 /* Leaderboard */
