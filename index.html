@@ -11,21 +11,37 @@
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <!-- Compiled and minified CSS -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-  <link rel="stylesheet" href="css/main.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.css">
+  <!-- Own CSS -->
+  <link rel="stylesheet" href="css/main.css">
   <link rel="shortcut icon" type="image/png" href="img/favicon.png" />
 </head>
 
 <body>
-  <!-- tabbar navigation -->
-  <nav class="sideNav">
+  <!-- navigation -->
+  <nav>
+    <div class="holder-holder">
+      <div class="left-holder">
+        <input class="menuToggle" type="checkbox" id="menuToggle" />
+        <label class="menuIconContainer" for="menuToggle" onclick="toggleNavUl()">
+          <span class="menuIcon"></span>
+          <span class="menuIcon"></span>
+          <span class="menuIcon"></span>
+        </label>
+      </div>
+      <div class="center-holder">
+        <a id="logoAnchor" href="https://www.arla.dk/" target="_blank"><img class="logo" src="img/arlaLogo.svg"></a>
+      </div>
+      <div class="right-holder">
+        <p>help icon?</p>
+      </div>
+    </div>
     <ul>
-      <li><a id="logoAnchor" href="https://www.arla.dk/" target="_blank"><img class="logo" src="img/arlaLogo.svg"></a></li>
-      <li><a href="#dashboard" onclick="showPage('dashboard')"><img src="img/dashboard.svg"></a></li>
-      <li><a href="#survey" onclick="showPage('survey')"><img src="img/survey.svg"></a></li>
-      <li><a href="#statistics" onclick="showPage('statistics')"><img src="img/statistics.svg"></a></li>
-      <li><a href="#leaderboard" onclick="showPage('leaderboard')"><img src="img/leaderboard.svg"></a></li>
-      <li><a href="#profile" onclick="showPage('profile')"><img src="img/profile.svg"></a></li>
+      <li><a href="#dashboard" onclick="showPage('dashboard'), removeNavUl()"><img src="img/dashboard.svg"></a></li>
+      <li><a href="#survey" onclick="showPage('survey'), removeNavUl()"><img src="img/survey.svg"></a></li>
+      <li><a href="#statistics" onclick="showPage('statistics'), removeNavUl()"><img src="img/statistics.svg"></a></li>
+      <li><a href="#leaderboard" onclick="showPage('leaderboard'), removeNavUl()"><img src="img/leaderboard.svg"></a></li>
+      <li><a href="#profile" onclick="showPage('profile'), removeNavUl()"><img src="img/profile.svg"></a></li>
     </ul>
   </nav>
 
@@ -44,13 +60,13 @@
         </section>
       </section>
       <section class="row">
-        <section class="col s6">
+        <section class="col s12 m6">
           <h2>Total Carbon Footprint</h2>
           <p>Your total carbon footprint</p>
           <p>What a nice graph that should be here, which we definitely put here instead of just a text saying we put it in</p>
 
         </section>
-        <section class="col s6">
+        <section class="col s12 m6">
           <h2>Tips and Tricks</h2>
           <p>A tip a day keeps the CO2 Away</p>
         </section>

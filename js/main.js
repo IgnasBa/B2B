@@ -11,6 +11,7 @@ const firebaseConfig = {
 };
   firebase.initializeApp(firebaseConfig);
 
+// Single Page Application Functionality
 // hide all pages
 function hideAllPages() {
   let pages = document.querySelectorAll(".page");
@@ -29,7 +30,7 @@ function showPage(pageId) {
 
 // sets active tabbar/ menu item
 function setActiveTab(pageId) {
-  let pages = document.querySelectorAll(".sideNav ul li a");
+  let pages = document.querySelectorAll("nav ul li a");
   for (let page of pages) {
     if (`#${pageId}` === page.getAttribute("href")) {
       page.classList.add("active");
@@ -51,6 +52,27 @@ function setDefaultPage() {
 
 setDefaultPage();
 
+// Responsive navigation
+// toggle active (displayBlock) class on nav ul
+function toggleNavUl() {
+  let navUl = document.querySelector("nav ul");
+  if (navUl.classList.value === "displayBlock") {
+    navUl.classList.remove("displayBlock");
+  } else {
+    navUl.classList.add("displayBlock");
+  }
+}
+
+// uncheck checkbox controlling Responsive navigation
+function removeNavUl() {
+  let checkbox = document.querySelector("#menuToggle");
+  checkbox.checked = false;
+  //then toggle to remove displayBlock
+  let navUl = document.querySelector("nav ul");
+  navUl.classList.remove("displayBlock");
+}
+
+
 // Chart
 
 const _db = firebase.firestore();
@@ -67,7 +89,7 @@ _dataRef.orderBy("year").onSnapshot(function(snapshotData) {
   });
   console.log(_sustainabilityData);
   appendCows(_sustainabilityData); // call appendCows with _sustainabilityData as function argument
- 
+
 });
   let cows = [];
   let years = [];
@@ -85,7 +107,7 @@ function appendCows(sustainabilityData) {
       diesel.push(data.diesel);
       footprint.push(data.footprint);
       sufficiency.push(data.sufficiency);
-    
+
   });
 
   console.log(cows);
