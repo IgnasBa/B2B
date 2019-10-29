@@ -151,19 +151,6 @@ nav .menuToggle:checked ~ .menuIconContainer .menuIcon:last-child {
   padding-top: 60px;
 }
 
-/* ---------- logo styling ----------
-.logo {
-  width: 100%;
-  padding: 0.5em;
-}
-
-#logoAnchor:hover {
-  background: none;
-}
-#logoAnchor{
-  margin-top: 20px;
-}
-
 /* ---------- animations ---------- */
 /* fade in */
 @keyframes fadeIn {
@@ -224,34 +211,9 @@ nav .menuToggle:checked ~ .menuIconContainer .menuIcon:last-child {
     width: 95px;
   }
 
-}
-
-/*
-.sideNav{
-  position: fixed;
-	background: #fff;
-	top: 0px;
-	left: 0px;
-	width: 120px;
-	height: 100%;
-	overflow: none;
-	z-index: 1;
-	text-align: center;
-	padding: 0;
-}
-
-.sideNav li{
-  width: 120px;
-  height: auto;
+  .page {
+    padding-top: 0;
+    padding-left: 90px;
+  }
 
 }
-
-.sideNav img{
-  padding-top: 23px;
-}
-.sideNav p{
-  margin-top: 0;
-  padding-top: 0;
-}
-
-*/
