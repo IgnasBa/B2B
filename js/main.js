@@ -292,7 +292,7 @@ function appendCows(sustainabilityData) {
                     label: 'Your footprint',
                     data: footprintUser,
                     backgroundColor: [
-                'rgba(96, 182, 203, 0.8)'
+                'rgba(96, 182, 203, 0.5)'
             ],
                     borderColor: ['rgba(96, 182, 203, 1)'],
                     borderWidth: 1,
@@ -302,7 +302,7 @@ function appendCows(sustainabilityData) {
                 {
                     label: 'Average footprint',
                     data: [farmersListAvg[0][0].footprint, farmersListAvg[1][0].footprint, farmersListAvg[2][0].footprint, farmersListAvg[3][0].footprint, farmersListAvg[4][0].footprint],
-                    backgroundColor: 'rgba(25, 93, 108, 0.8)',
+                    backgroundColor: 'rgba(25, 93, 108, 0.5)',
                     borderColor: [
                 'rgba(25, 93, 108, 1)'
             ],
@@ -312,7 +312,7 @@ function appendCows(sustainabilityData) {
                     label: 'Average footprint from your region',
                     data: [farmersListAvgNorth[0][0].footprint, farmersListAvgNorth[1][0].footprint, farmersListAvgNorth[2][0].footprint, farmersListAvgNorth[3][0].footprint, farmersListAvgNorth[4][0].footprint],
                     backgroundColor: [
-                'rgba(29, 35, 68, 0.8)'
+                'rgba(29, 35, 68, 0.5)'
             ],
                     borderColor: ['rgba(29, 35, 68, 1)'],
                     borderWidth: 1,
@@ -340,7 +340,7 @@ function appendCows(sustainabilityData) {
                     label: 'Your diesel consumption',
                     data: dieselUser,
                     backgroundColor: [
-                'rgba(141, 186, 207, 0.8)'
+                'rgba(141, 186, 207, 0.5)'
             ],
                     borderColor: [
                 'rgba(141, 186, 207, 1)'
@@ -352,7 +352,7 @@ function appendCows(sustainabilityData) {
                 {
                     label: 'Average diesel consumption',
                     data: [farmersListAvg[0][0].diesel, farmersListAvg[1][0].diesel, farmersListAvg[2][0].diesel, farmersListAvg[3][0].diesel, farmersListAvg[4][0].diesel],
-                    backgroundColor: 'rgba(86, 135, 158, 0.8)',
+                    backgroundColor: 'rgba(86, 135, 158, 0.5)',
                     borderColor: [
                 'rgba(86, 135, 158, 1)'
             ],
@@ -362,7 +362,7 @@ function appendCows(sustainabilityData) {
                     label: 'Average diesel consumption from your region',
                     data: [farmersListAvgNorth[0][0].diesel, farmersListAvgNorth[1][0].diesel, farmersListAvgNorth[2][0].diesel, farmersListAvgNorth[3][0].diesel, farmersListAvgNorth[4][0].diesel],
                     backgroundColor: [
-                'rgba(21, 74, 99, 0.8)'
+                'rgba(21, 74, 99, 0.5)'
             ],
                     borderColor: [
                 'rgba(21, 74, 99, 1)'
@@ -392,7 +392,7 @@ function appendCows(sustainabilityData) {
                     label: 'Your footprint',
                     data: electricityUser,
                     backgroundColor: [
-                'rgba(18, 55, 38, 0.8)'
+                'rgba(18, 55, 38, 0.5)'
             ],
                     borderColor: ['rgba(18, 55, 38, 1)'],
                     borderWidth: 1,
